@@ -14,6 +14,10 @@ interface PortfolioPerformance {
  */
 export const calculatePortfolioPerformance = (initialInvestment: number, currentValue: number): PortfolioPerformance => {
 
+    if (initialInvestment == null || isNaN(initialInvestment) || typeof initialInvestment !== 'number' || initialInvestment <= 0) {
+        throw new Error("Initial investment must be a number greater than 0.");
+    }
+
     const profitOrLoss = currentValue - initialInvestment;
     const percentageChange = (profitOrLoss / initialInvestment) * 100;
 
