@@ -18,7 +18,7 @@ export const calculatePortfolioPerformance = (initialInvestment: number, current
     const percentageChange = (profitOrLoss / initialInvestment) * 100;
 
     /**
-     * Determines the portfolio status based on the percentage
+     * Determines the portfolio status based on the changed percentage of the investment
      * @param percentageChange 
      * @returns A status string indicating the state of the portfolio 
      */
