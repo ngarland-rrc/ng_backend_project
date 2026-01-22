@@ -43,3 +43,17 @@ describe("GET /api/v1/portfolio/performance", () => {
     });
 });
 
+describe("GET /api/v1/portfolio/performance", () => {
+    it("should return with modest gain performance summary", async () => {
+        const response: Response = await request(app)
+            .get("/api/v1/portfolio/performance?initialInvestment=10000&currentValue=10900");
+
+        expect(response.status).toBe(200);
+        expect(response.body.initialInvestment).toBe(10000);
+        expect(response.body.currentValue).toBe(10900);
+        expect(response.body.profitOrLoss).toBe(900);
+        expect(response.body.percentageChange).toBe(9);
+        expect(response.body.performanceSummary).toBe("Modest gain. Your portfolio is growing slowly.");
+    });
+});
+
