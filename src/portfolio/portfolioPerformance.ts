@@ -11,10 +11,15 @@ interface PortfolioPerformance {
  * @param initialInvestment - Initial investment made
  * @param currentValue - Current value of the portfolio 
  * @returns The calculated portfolio with its performance
+ * @throws Will throw Error if initialInvestment isn't a number greater than 0
  */
 export const calculatePortfolioPerformance = (initialInvestment: number, currentValue: number): PortfolioPerformance => {
 
-    if (initialInvestment == null || isNaN(initialInvestment) || typeof initialInvestment !== 'number' || initialInvestment <= 0) {
+    if (initialInvestment == null ||
+        isNaN(initialInvestment) ||
+        typeof initialInvestment !== 'number' ||
+        initialInvestment <= 0
+    ) {
         throw new Error("Initial investment must be a number greater than 0.");
     }
 
