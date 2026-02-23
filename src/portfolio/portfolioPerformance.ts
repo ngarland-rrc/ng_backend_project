@@ -15,6 +15,10 @@ interface PortfolioPerformance {
  */
 export const calculatePortfolioPerformance = (initialInvestment: number, currentValue: number): PortfolioPerformance => {
 
+    /*
+    I might be mistaken but I believe typeOf would already check for null and Nan, so you can probably get away with just the typeOf and smaller than zero check
+    You may also want to consider supporting multiple different error messages such as "must be a number".
+    */
     if (initialInvestment == null ||
         isNaN(initialInvestment) ||
         typeof initialInvestment !== 'number' ||
